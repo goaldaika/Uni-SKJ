@@ -1,0 +1,42 @@
+{% extends "polls/base.html" %} 
+{% block body %}
+<h2>{{ course.name }}</h2>
+
+<p>
+        <h3>Faculty</h3>
+        {% if faculties %}
+                {% for faculty in faculties %}
+                        <p><a href="{% url 'faculty' faculty.id %}">
+                                {{ faculty.name }} 
+                        </a></p>
+                {% endfor %}
+        {% else %}
+                <p> </p>
+        {% endif %}
+
+        <h3>Teacher</h3>   
+        {% if teachers %}
+                {% for teacher in teachers %}
+                        <p><a href="{% url 'teacher' teacher.id %}">
+                                {{ teacher.fname }} {{ teacher.lname }}
+                        </a></p>
+                {% endfor %}
+        {% else %}
+                <p> </p>
+        {% endif %}
+        
+        
+        <h3>Students</h3>
+        {% if students %}
+                {% for student in students %}
+                        <p><a href="{% url 'student' student.id %}">
+                                {{ student.fname }} {{ student.lname }}
+                        </a></p>
+                {% endfor %}
+        {% else %}
+                <p> </p>
+        {% endif %}
+        
+        
+</p>
+{% endblock %}

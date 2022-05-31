@@ -1,0 +1,13 @@
+{% extends "polls/base.html" %}
+
+{% block body %}
+        {% for student in students %}
+            <p><a href="{% url 'student' student.id %}">{{ student.fname }} {{ student.lname }}</a></p>
+            <a href = "{% url 'update_student' student.id %}" >Update</a>
+            <a href = "{% url 'delete_student' student.id %}" >Delete </a> 
+            <p>-------------------------------------------------------------</p>
+        {% endfor %}
+        <p> </p>
+        <a href = "{% url 'create_student' %}" >Add student</a>
+
+{% endblock %}

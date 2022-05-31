@@ -1,0 +1,14 @@
+{% extends "polls/base.html" %} 
+{% block body %}
+
+<p>Confirm Deletion of "{{class.name}}" ?</p>
+
+<form action="{% url 'delete_class' class.id  %}" method = "POST">
+    {% csrf_token %}
+    <a href="{% url 'index' %}">Cancel</a>
+
+    <input type="submit" name ="Confirm">
+
+</form>
+
+{% endblock %}
